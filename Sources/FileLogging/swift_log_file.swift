@@ -34,7 +34,7 @@ public struct FileLogging {
     private var localFile: URL
     
     public init(to localFile: URL) throws {
-        self.stream = try FileHandlerOutputStream(localFile: localFile)
+        self.stream = FileHandlerOutputStream(localFile: localFile)
         self.localFile = localFile
     }
     
@@ -81,7 +81,7 @@ public struct FileLogHandler: LogHandler {
 
     public init(label: String, localFile url: URL) throws {
         self.label = label
-        self.stream = try FileHandlerOutputStream(localFile: url)
+        self.stream = FileHandlerOutputStream(localFile: url)
     }
 
     public func log(level: Logger.Level,
